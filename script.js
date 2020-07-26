@@ -4,11 +4,10 @@ var passwordLower = "abcdefghijlkmnopqrstuvwxyz";
 var passwordUpper = "ABCDEFGHIJLMNOPQRSTUVWXYZ";
 var passwordSpec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 var passwordNumber = "1234567890";
-var msgDiv = document.querySelector("#password");
+
 
 function generatePassword() {
   var passwordPool = ""
-  var passwordResult = [];
 
   var passwordAsk = prompt("How long do you want your password to be?")
  
@@ -62,7 +61,6 @@ function generatePassword() {
   var passwordAskSpecial = confirm("Do you want to add special charcters to your password?")
     if (passwordAskSpecial === true) {
       var remain = passwordAsk - passwordPool.length;
-      //remaining length of password
       console.log(remain);
 
       for (var i = 0; i < remain; i++) {
@@ -83,26 +81,9 @@ function generatePassword() {
       alert("You did not select special characters to your password");
     }
 
-    // for (var j = 0; j < passwordPool; j++) {
-    //   // console.log("passwordLetter"+ i);
-    //   var randomize = Math.floor(Math.random() * passwordPool.length);
-    //   console.log(randomize);
-    //   passwordResult += passwordPool[randomize];
-    //   console.log(passwordResult);
-
-    // var passwordResult = passwordPool.split("");
-    // function shuffle(array) {
-    //   array.sort(() => Math.random() - 0.5);
-    // }
-    
-    // shuffle(passwordResult);
-    // console.log(passwordResult);
-
-    // return passwordResult.join("");
-    
-    var poolArray = passwordPool.split(""); // ["a","b","c"]
-    var randomList = []; //empty array
-    for (var i = 0; i < passwordPool.length; i++) { // loop password length time
+    var poolArray = passwordPool.split(""); 
+    var randomList = []; 
+    for (var i = 0; i < passwordPool.length; i++) { 
     randomindex = Math.floor(Math.random() * (poolArray.length-1))  
     randomList.push(poolArray[randomindex]);
     poolArray.splice(randomindex,1)
