@@ -1,47 +1,49 @@
 Conditions
 
-1. scipt asking how many charater do you want your password to be
+1. user clicks the "generate password" button.
 
-* if you are going to have your password least 8 characters long, it will proceed.
+2. user gets prompt asking how long password it should be
 
-* if you are going to have your password less then 8 characters long, it will abort.
+* if you have your password least 8 characters long, it will proceed.
 
+    A. script will ask if the user want to add special characters to the password.
 
+    * If yes, add the special characters to the password pool.
 
-2. script will ask if the user want to add special characters to the password.
-
-* If yes, add the special characters to the password pool.
-
-* If not, do not add the special characters to the password pool.
+    * If not, do not add the special characters to the password pool.
 
 
 
-3. script will ask if the user want to add numeric values to the password.
+    B. script will ask if the user want to add numeric values to the password.
 
-* If yes, add the numeric values to the password pool.
+    * If yes, add the numeric values to the password pool. 
 
-* If not, do not add the numeric values to the password pool.
-
-
-
-4. script will ask if the user want to add lowercase characters to the password.
-
-* If yes, add the lowercase characters to the password pool.
-
-* If not, do not add the lowercase characters to the password pool.
+    * If not, do not add the numeric values to the password pool.
 
 
 
-5. script will ask if the user want to add uppercase characters to the passwrd.
+    C. script will ask if the user want to add lowercase characters to the password.
 
-* If yes, add the uppercase characters to the password pool.
+    * If yes, add the lowercase characters to the password pool.
 
-* If not, do not add the uppercase characters  to the password pool.
+    * If not, do not add the lowercase characters to the password pool.
 
 
 
-6. script will generate password with what options user choose.
+    D. script will ask if the user want to add uppercase characters to the passwrd.
 
-7. script will display the password on index.html page
+    * If yes, add the uppercase characters to the password pool.
+
+    * If not, do not add the uppercase characters  to the password pool.
+
+    E. script will randomize the password pool.
+    
+    F. script will display the password on index.html page
+
+* if you have your password less then 8 characters long, it will abort.
+
+    A. script will display error message.
+
+
 
 
