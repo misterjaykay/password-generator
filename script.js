@@ -24,10 +24,13 @@ function generatePassword() {
     if (passwordAskLower === true) {
       for (var i = 0; i < 2; i++) {
         var randomLower = Math.floor(Math.random() * passwordLower.length);
-        passwordPool += passwordLower[randomLower];
-        
+        passwordPool += passwordLower[randomLower]; 
       }
       console.log(passwordPool);
+    }
+
+    else {
+      alert("You did not select lower case letters to your password.")
     }
 
   var passwordAskUpper = confirm("Do you want to add upper case letters to your password?")
@@ -39,16 +42,22 @@ function generatePassword() {
       console.log(passwordPool);
     }
 
+    else {
+      alert("You did not select upper case letters to your password.")
+    }
+
   var passwordAskNumber = confirm("Do you want to add numeric values to your password?")
     if (passwordAskNumber === true) {
       for (var i = 0; i < 2; i++) {
         var randomNumb = Math.floor(Math.random() * passwordNumber.length);
         passwordPool += passwordNumber[randomNumb];
-
       }
       console.log(passwordPool);
     }
-    // everything is working on top ^^^
+    
+    else {
+      alert("You did not select numeric values to your password.")
+    }
 
   var passwordAskSpecial = confirm("Do you want to add special charcters to your password?")
     if (passwordAskSpecial === true) {
@@ -59,31 +68,49 @@ function generatePassword() {
       for (var i = 0; i < remain; i++) {
         var randomSpc = Math.floor(Math.random() * passwordSpec.length);
         passwordPool += passwordSpec[randomSpc];
-    
       }
       console.log(passwordPool);
-      
     }  
 
-    // passwordPoolList = passwordPool.split("");
-    // passwordPoolFinal = "";
-    // console.log(passwordPool); //same as top
-    // console.log(passwordPoolList); // now it has numbers of arrays.
-
-    // place another random loop here
-
-    for (var j = 0; j < passwordAsk; j++) {
-      // console.log("passwordLetter"+ i);
-      var randomize = Math.floor(Math.random() * passwordAsk.length);
-      console.log(randomize);
-      passwordResult += passwordPool[randomize];
-      console.log(passwordResult);
-
-
+    else if (passwordAskLower === false && 
+          passwordAskNumber === false && 
+          passwordAskSpecial === false && 
+          passwordAskUpper === false) {
+      alert("Password cannot be made. \nYou need to choose at least one character type."); 
     }
-    console.log(passwordResult);
-  
-    return passwordResult;
+
+    else {
+      alert("You did not select special characters to your password");
+    }
+
+    // for (var j = 0; j < passwordPool; j++) {
+    //   // console.log("passwordLetter"+ i);
+    //   var randomize = Math.floor(Math.random() * passwordPool.length);
+    //   console.log(randomize);
+    //   passwordResult += passwordPool[randomize];
+    //   console.log(passwordResult);
+
+    // var passwordResult = passwordPool.split("");
+    // function shuffle(array) {
+    //   array.sort(() => Math.random() - 0.5);
+    // }
+    
+    // shuffle(passwordResult);
+    // console.log(passwordResult);
+
+    // return passwordResult.join("");
+    
+    var poolArray = passwordPool.split(""); // ["a","b","c"]
+    var randomList = []; //empty array
+    for (var i = 0; i < passwordPool.length; i++) { // loop password length time
+    randomindex = Math.floor(Math.random() * (poolArray.length-1))  
+    randomList.push(poolArray[randomindex]);
+    poolArray.splice(randomindex,1)
+    };
+
+    finalPassword = randomList.join("");
+    console.log("Final password is ", finalPassword);
+    return finalPassword;
 }
 
 // Write password to the #password input
