@@ -5,13 +5,14 @@ var passwordUpper = "ABCDEFGHIJLMNOPQRSTUVWXYZ";
 var passwordSpec = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 var passwordNumber = "1234567890";
 
+var passwordSpecArray = passwordSpec.split("");
 
 function generatePassword() {
   var passwordPool = ""
 
   var passwordAsk = prompt("How long do you want your password to be?")
  
-    if (passwordAsk >= 8 && passwordAsk < 128) {
+    if (passwordAsk >= 8 && passwordAsk < 129) {
       console.log(passwordAsk);  
     }
     else {
@@ -19,11 +20,12 @@ function generatePassword() {
       return;
     }
 
-  var passwordAskLower = confirm("Do you want to add lower case letters to your password?")
-    if (passwordAskLower === true) {
+  
+  var passwordAskSpecial = confirm("Do you want to add special charcters to your password?")
+    if (passwordAskSpecial === true) {
       for (var i = 0; i < 2; i++) {
-        var randomLower = Math.floor(Math.random() * passwordLower.length);
-        passwordPool += passwordLower[randomLower]; 
+        var randomSpec = Math.floor(Math.random() * passwordSpecArray.length);
+        passwordPool += passwordSpec[randomSpec]; 
       }
       console.log(passwordPool);
     }
@@ -46,14 +48,14 @@ function generatePassword() {
       console.log(passwordPool);
     }
 
-  var passwordAskSpecial = confirm("Do you want to add special charcters to your password?")
-    if (passwordAskSpecial === true) {
+  var passwordAskLower = confirm("Do you want to add lower case letters to your password?")
+    if (passwordAskLower === true) {
       var remain = passwordAsk - passwordPool.length;
       console.log(remain);
 
       for (var i = 0; i < remain; i++) {
-        var randomSpc = Math.floor(Math.random() * passwordSpec.length);
-        passwordPool += passwordSpec[randomSpc];
+        var randomSpc = Math.floor(Math.random() * passwordLower.length);
+        passwordPool += passwordLower[randomSpc];
       }
       console.log(passwordPool);
     }  
