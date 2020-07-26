@@ -28,10 +28,6 @@ function generatePassword() {
       console.log(passwordPool);
     }
 
-    else {
-      alert("You did not select lower case letters to your password.")
-    }
-
   var passwordAskUpper = confirm("Do you want to add upper case letters to your password?")
     if (passwordAskUpper === true) {
       for (var i = 0; i < 2; i++) {
@@ -41,10 +37,6 @@ function generatePassword() {
       console.log(passwordPool);
     }
 
-    else {
-      alert("You did not select upper case letters to your password.")
-    }
-
   var passwordAskNumber = confirm("Do you want to add numeric values to your password?")
     if (passwordAskNumber === true) {
       for (var i = 0; i < 2; i++) {
@@ -52,10 +44,6 @@ function generatePassword() {
         passwordPool += passwordNumber[randomNumb];
       }
       console.log(passwordPool);
-    }
-    
-    else {
-      alert("You did not select numeric values to your password.")
     }
 
   var passwordAskSpecial = confirm("Do you want to add special charcters to your password?")
@@ -75,10 +63,6 @@ function generatePassword() {
           passwordAskSpecial === false && 
           passwordAskUpper === false) {
       alert("Password cannot be made. \nYou need to choose at least one character type."); 
-    }
-
-    else {
-      alert("You did not select special characters to your password");
     }
 
     var poolArray = passwordPool.split(""); 
